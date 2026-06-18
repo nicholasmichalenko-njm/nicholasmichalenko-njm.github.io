@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="dark" lang="en"><head>
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>BTS News Stream - Notification Settings</title>
@@ -333,23 +333,17 @@
             </button>
 </div>
 </main>
-<nav class="fixed bottom-0 w-full bg-background/80 backdrop-blur-xl border-t border-outline-variant/20 px-xl py-sm flex justify-around items-center z-50">
-<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="index.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
-<span class="text-xs font-label-md">Feed</span>
-</a>
-<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="explore.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">explore</span>
-<span class="text-xs font-label-md">Explore</span>
-</a>
-<a class="flex flex-col items-center gap-xs text-primary transition-colors" href="settings.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
-<span class="text-xs font-label-md">Alerts</span>
-</a>
-<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="profile.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
-<span class="text-xs font-label-md">Profile</span>
-</a>
+<nav class="fixed bottom-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-[30px] border-t border-white/5 shadow-none pb-safe" id="bottomNavBar">
+<div class="flex justify-around items-center h-16 w-full px-margin-mobile">
+<!-- Feed -->
+<a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200"><span class="material-symbols-outlined mb-1 text-[24px]" data-icon="home">home</span><span class="font-label-md text-[10px]">Feed</span></a>
+<!-- Explore -->
+<a href="explore.html" class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200"><span class="material-symbols-outlined mb-1 text-[24px]" data-icon="explore">explore</span><span class="font-label-md text-[10px]">Explore</span></a>
+<!-- Alerts (Active) -->
+<a href="settings.html" class="flex flex-col items-center justify-center text-primary relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full after:shadow-[0_0_8px_#e3b5ff] hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200"><span class="material-symbols-outlined mb-1 text-[24px]" data-icon="notifications" data-weight="fill" style="font-variation-settings: 'FILL' 1;">notifications</span><span class="font-label-md text-[10px]">Alerts</span></a>
+<!-- Profile -->
+<a href="profile.html" class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200"><span class="material-symbols-outlined mb-1 text-[24px]" data-icon="person">person</span><span class="font-label-md text-[10px]">Profile</span></a>
+</div>
 </nav>
 
 </body></html>
