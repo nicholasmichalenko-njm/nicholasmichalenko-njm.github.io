@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Borahae - Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-primary": "#9000de",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "secondary-fixed": "#f3daff",
+                        "surface": "#131313",
+                        "on-primary-fixed-variant": "#6e00ab",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#2e014b",
+                        "surface-variant": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#d1c1d7",
+                        "on-error": "#690005",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#f9e8ff",
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353534",
+                        "secondary": "#e2b5ff",
+                        "surface-tint": "#e3b5ff",
+                        "primary": "#e3b5ff",
+                        "tertiary-container": "#6b6c6c",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-container": "#a020f0",
+                        "on-secondary-container": "#d5a6f4",
+                        "outline-variant": "#4e4355",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#e3e2e2",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline": "#9a8ca0",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#f3daff",
+                        "on-primary": "#4d007a",
+                        "on-secondary": "#451d61",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed": "#2f004c",
+                        "on-tertiary": "#2f3131",
+                        "secondary-container": "#60377c",
+                        "on-secondary-fixed-variant": "#5d357a",
+                        "tertiary": "#c6c6c6",
+                        "secondary-fixed-dim": "#e2b5ff",
+                        "background": "#131313",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e3b5ff",
+                        "on-tertiary-container": "#efeeee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sm": "12px",
+                        "gutter-mobile": "12px",
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "xs": "8px",
+                        "safe": "env(safe-area-inset-bottom)"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "30px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { background-color: #121212; color: #e5e2e1; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .story-ring-active {
+            padding: 2px;
+            background: linear-gradient(45deg, theme('colors.primary'), theme('colors.secondary'));
+            border-radius: 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen pb-24 pt-16 selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/5 shadow-none transition-transform duration-200" id="topAppBar">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full">
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black tracking-tighter text-primary dark:text-primary drop-shadow-[0_0_15px_rgba(227,181,255,0.4)]">BORAHAE</h1>
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="w-full max-w-2xl mx-auto flex flex-col gap-lg px-margin-mobile pt-lg">
+<!-- Member Stories Filter -->
+<section class="w-full">
+<div class="flex overflow-x-auto hide-scrollbar gap-sm pb-xs -mx-margin-mobile px-margin-mobile">
+<!-- OT7 (Active) -->
+<div class="flex flex-col items-center gap-xs flex-shrink-0 cursor-pointer"><div class="story-ring-active w-16 h-16 shadow-[0_0_15px_rgba(227,181,255,0.4)]">
+<img class="w-full h-full rounded-full object-cover border-2 border-background" data-alt="OT7 Collective View" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbXQqgpAt1fMiDZStgZl1WH9zUjj2k5YRLghLSxnv-_svvm3SAFlwURmrErmjg39imhAtmjmB259tMYhlZGhEZzk1WT7XYhkevm_vZJ17NjNZMmLHh4V80PJEw8pPlHb9cljb9uiVfdVyEdLYGFbYDnHoN2kXKnrwzhhPPLAM2sSeO_jDcJIaLBQ8ZUT15-GWgprRxeP33hI7eI0EIdsg6gka_HPbeU3DADM4rRksd5ddfzchgnOSvU_AG1Sb8bmuH7ZvVz5OS02Sj"/>
+</div>
+<span class="font-label-md text-label-md text-primary drop-shadow-[0_0_5px_rgba(227,181,255,0.5)]">Collective</span></div><div class="flex flex-col items-center gap-xs flex-shrink-0 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border-2 border-primary/50 p-[2px] shadow-[0_0_10px_rgba(227,181,255,0.3)]">
+<img class="w-full h-full rounded-full object-cover" data-alt="BTS Official Account" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4ujXj20b9_jiKqWR1UVcwAzsMonasSdYw7asCHimb4_4_pbalMC8-vis6ZUd6IwppQ6uwFPMsK87Onz4WfaecZy1c8daoVBtuqkdtATycC0t85cfqWUQR_IOTiTUySdEX2Do8u5Mbf2limGhF7KFMOTHR1crjP5KtmTT0NVbRsOLYBTKY3yR_yqQFsRxQ9zGILszGuJWIef3C99VAiJQj8CT-oKgT-wnzOkjQfxYqybA5RGeImwPIoUtpIOcDmjwzD9SAKB6DQpZe"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Official</span>
+</div>
+<!-- RM -->
+<div class="flex flex-col items-center gap-xs flex-shrink-0 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-white/10 p-[2px]">
+<img class="w-full h-full rounded-full object-cover" data-alt="A moody, artistic portrait of a male K-pop rapper and leader in an art gallery setting. He wears a sophisticated, structured dark coat over a charcoal turtleneck. The scene is illuminated by dramatic, soft spotlights cutting through the dark surroundings, evoking an intellectual and creative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtljwpnHuF4YfXRYjrKa_kbx-WkPA4qjuay6UiHjXeqfuUcRF7_jO5u7RvGPpN87PZ2BBJnGK28_fg_SN7nJEjFWhDkLt4HpkyR80k-2v0H655Sj2Dk97emdCuFh7J_joT6A4RVhayHzTGjXMB0Kt7pFyapW3LuBLiwbdI-1dhaI5c3Yv4myKSfcOAs8p514snRhpI47Fet4q5PMQ7HmdHbh_PC0i-RkWLUTlfmtpXXX9o33GHBnUyXBuq5VGGlhnZdT_zn3XZA4cp"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">RM</span>
+</div>
+<!-- Jin -->
+<div class="flex flex-col items-center gap-xs flex-shrink-0 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-white/10 p-[2px]">
+<img class="w-full h-full rounded-full object-cover" data-alt="A striking portrait of a male K-pop vocalist known for his worldwide handsome visuals. He is dressed in an elegant, modern dark suit with a subtle shimmer. The background is a deep, velvety black, allowing a soft, ethereal glow to highlight his flawless features, exuding a luxurious and refined aura." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUAzFO-F_BrGks6QIpev7dCn7277D5BQE6e9_JTiKInk_Nk4dzCIvdUJMTFinsRUzxVqSbtSmZjeC8jmCPhUfExhrRnE0TFT5YCAH4SY18y_91eqXB3P8XxQilS0H_gl7cFdJpj3BjXi3nLs6t-X4K-s6npXQ6U16Da79z9-iNrRV_p67GG7XBpaMY6_VmYhX-nBrAAat0YT-Ci41fMttnecY29g-DT8GXklz-pXSP2EmLFZvfIjnT6OVkLcchzMF_OKYBWZ17zxfB"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Jin</span>
+</div>
+<!-- Suga -->
+<div class="flex flex-col items-center gap-xs flex-shrink-0 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-white/10 p-[2px]">
+<img class="w-full h-full rounded-full object-cover" data-alt="An intense, charismatic portrait of a male K-pop rapper and producer in a recording studio environment. He wears a stylish, oversized black leather jacket. Low-key lighting with hints of deep purple and neon blue reflects off the studio equipment, creating a raw, powerful, and deeply focused mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHTToqoS4dp0GPwYeBCSJEtAVzYXb3-84Hl7_XRRbZj_h-i1SIfLwkFboUHbEPclsSbGzFhqBJpK1eSQBRAgO4uYn8SPkgrsF603ZN8ajZ4e8esLS9yw1OoW-TDRn8C_iTMpwgSxy7TljEbJuMO46sou7UMZuXr3khggcICKru__Imlk2b17XeyrusbF67SYs7wAQISldfzjMg01Oi-Ur-alVNbWbJPM-WpER0HFNJDAbCVmoyy_bpklm6CB_hRWvbzD0jY_MuovKa"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Suga</span>
+</div>
+<!-- j-hope -->
+<div class="flex flex-col items-center gap-xs flex-shrink-0 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-white/10 p-[2px]">
+<img class="w-full h-full rounded-full object-cover" data-alt="A dynamic, energetic portrait of a male K-pop dancer and rapper mid-movement. He wears cutting-edge streetwear with reflective metallic details against a dark background. Vibrant, colorful kinetic light trails follow his motion, capturing a high-energy, electrifying, and joyous atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAriltIy2xLOyUNghe5WnSUEeH0XSF6aB9vEkqbBaN4nA72CcBdymo_EKTNFidQNC6ZdpYVo7fFNH9EbcegogSBf1lYjSc7ahPaQADpAaJGlptjDaMoud3KEMN6qWEV4f26VS70Y9wQRDRIOKIZKqeWq4XfmvluetvPV4Zs_uvvRdBOzgIgDeEi5bN-hWTge9eFUmbME3vpr59oOJ0yQR__YOZtxrQQDE3qbl-XXSSGoMWeA8XYEohC9CdS6FI6W0alZmtJGqYwyNNx"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">j-hope</span>
+</div>
+<!-- Jimin -->
+<div class="flex flex-col items-center gap-xs flex-shrink-0 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-white/10 p-[2px]">
+<img class="w-full h-full rounded-full object-cover" data-alt="An ethereal, elegant portrait of a male K-pop dancer and vocalist. He is adorned in flowing, avant-garde dark silk garments that catch the light. The setting is mystical and dreamlike, with soft, diffused bioluminescent glows in purples and blues surrounding him, portraying grace and captivating allure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4H_S13iLtPOI69466PAYuHQzhPcqy2afNtjr7YOLt9OK9SnYWKLPi8EdhoXKmYHo05KQWcyAYLva0OdGQztKSDl0_r6lNLqlkhrbSWPQGFpenoiiXFfcbAX0tI13Cc0hSxVD4k9ACZ3JjtV30rXNIVnD8v1ABtFMUKGXqbuZ95gZTyiilJkBqu0WnXLSLrluOMGxfm0IHhDs4hK4E6Z3hhnfS9dSzMdopZdUUxosXH4Zgcmc-rBIzOWHKkz24SQ59eUavc8VkiWUe"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Jimin</span>
+</div>
+<!-- V -->
+<div class="flex flex-col items-center gap-xs flex-shrink-0 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-white/10 p-[2px]">
+<img class="w-full h-full rounded-full object-cover" data-alt="A captivating, soulful portrait of a male K-pop vocalist with striking features. He wears vintage-inspired luxury fashion in deep jewel tones layered over black. The lighting is cinematic and nostalgic, reminiscent of a classic film noir, creating a mysterious, romantic, and profoundly expressive mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe9lHUB-zTMh6akg90h4krE2YfIqXr6xBWbg8DCRJRrsS9Um52V5S070gaTjoi7ElD2dcYD5jeCBb5wlcAAufpn-jpqk--5jQs-huEJ2eXGYfXrs3YvNIIpQIVj6no3r_F7gK0va8rujEHlV8ooKTCWfFuRwNVh7s7xE7rn5I5Ch9v_dhKx3NsZnrthN7u_DU--9XEKe6c7XtM3Yf-jE7K_X8YTuQucTbvgBBPz_KJ771bAlm4CB9MshSRAieFJmvgTSor_UJE9Zu5"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">V</span>
+</div>
+<!-- Jungkook -->
+<div class="flex flex-col items-center gap-xs flex-shrink-0 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-white/10 p-[2px]">
+<img class="w-full h-full rounded-full object-cover" data-alt="A bold, modern portrait of the youngest male K-pop vocalist and performer. He is styled in an edgy, contemporary dark punk aesthetic with subtle silver hardware. High-contrast, dramatic lighting emphasizes his strong presence and dynamic energy, projecting a confident, trend-setting, and powerful aura." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpffdtAMis0PBK5CH_Wy3-Hb8zBsmJdww7qgreRUCG2XjbZ2OzvhFb3dCJb20PvGERBhIquRNVXjWI6_PiE5WcqqDtYNoO2kyfNcNFVJ_72__HXWV8Kh7CxpWEs0Y4SxvNW7uGi2F1lerfl2qOkTGY37DfldjJkoJNMqrbHW9l9s6GARHRK3uJE-2ytuZ8FuxPzpXyso8aRm_X80ko-EgyMuwIL5QFAz_rsZjN99Du7QuegxvVQwbqIXgjkQeAv8t8-USgHJPBmOg_"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Jungkook</span>
+</div>
+</div>
+</section>
+<!-- Trending Topics Chips -->
+<section class="w-full -mx-margin-mobile px-margin-mobile overflow-x-auto hide-scrollbar">
+<div class="flex gap-sm w-max pb-xs">
+<button class="px-4 py-2 rounded-full font-label-caps text-label-caps bg-primary/15 text-primary border border-primary shadow-[0_0_10px_rgba(227,181,255,0.2)] transition-transform active:scale-95">#YetToCome</button>
+<button class="px-4 py-2 rounded-full font-label-caps text-label-caps glass-card text-on-surface-variant hover:text-primary transition-colors active:scale-95">#FESTA2024</button>
+<button class="px-4 py-2 rounded-full font-label-caps text-label-caps glass-card text-on-surface-variant hover:text-primary transition-colors active:scale-95">#Golden</button>
+<button class="px-4 py-2 rounded-full font-label-caps text-label-caps glass-card text-on-surface-variant hover:text-primary transition-colors active:scale-95">#Layover</button>
+<button class="px-4 py-2 rounded-full font-label-caps text-label-caps glass-card text-on-surface-variant hover:text-primary transition-colors active:scale-95">#DDay</button>
+</div>
+</section>
+<!-- Feed Stream -->
+<section class="flex flex-col gap-lg">
+<!-- Card 1: Image heavy -->
+<article class="glass-card rounded-xl overflow-hidden transition-transform active:scale-[0.98] cursor-pointer">
+<div class="p-4 flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up of a circular avatar logo for a prominent global K-pop fandom application. The logo features abstract geometric shapes in sleek silver and deep purple, set against a pitch-black background, conveying a high-tech, exclusive, and premium digital community space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4ujXj20b9_jiKqWR1UVcwAzsMonasSdYw7asCHimb4_4_pbalMC8-vis6ZUd6IwppQ6uwFPMsK87Onz4WfaecZy1c8daoVBtuqkdtATycC0t85cfqWUQR_IOTiTUySdEX2Do8u5Mbf2limGhF7KFMOTHR1crjP5KtmTT0NVbRsOLYBTKY3yR_yqQFsRxQ9zGILszGuJWIef3C99VAiJQj8CT-oKgT-wnzOkjQfxYqybA5RGeImwPIoUtpIOcDmjwzD9SAKB6DQpZe"/>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">BIGHIT MUSIC</h3>
+<p class="font-body-sm text-[10px] text-on-surface-variant/70">2 hours ago</p>
+</div>
+</div>
+<span class="font-label-caps text-[10px] bg-surface-container/80 px-2 py-1 rounded text-[#00E5FF] tracking-widest border border-white/10">WEVERSE</span>
+</div>
+<div class="px-4 pb-sm">
+<p class="font-body-sm text-body-sm text-on-surface mb-3 line-clamp-3">
+                        Concept Photo version 1 is finally here. Experience the new era. Are you ready? 💜
+                    </p>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="text-primary font-label-md text-xs">#NewRelease</span>
+<span class="text-primary font-label-md text-xs">#ConceptPhoto</span>
+</div>
+</div>
+<div class="w-full aspect-[4/5] relative">
+<img class="w-full h-full object-cover" data-alt="A spectacular, high-resolution conceptual promotional photograph of a K-pop group. The members are arranged in an asymmetrical, dynamic formation within an avant-garde, brutalist architectural space. Harsh shadows contrast with striking, neon purple and vibrant magenta lighting, creating a futuristic, edgy, and breathtaking visual impact." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBADEjMF5WKhYd9jNwl4keHVpSWSuhv1y1_gPmw_mxrl7-Ky0Wk0jCiZzkRVQJFBB9H57lnkBkUTiaKAYXsm6yDrAcFqpIRrzJ1TS7sieUBFTchl5p0csLNEYik7Dp_g2eqkLOJnv8fVYVE9-pESY4OSCGOpgpuZo2GMMX07zhxCqfrZbObV9Ao_5npYQeZko74bgPhiaP1Nx9YyMCGuKn_spt9L-ls3HCdEO2fd6hrV6MlM71I01auBs1NwLG9vQcT-2NXBVxnKE6"/>
+</div>
+<div class="p-4 flex justify-between items-center border-t border-white/5 bg-surface-container-low/30">
+<div class="flex gap-4">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<div class="w-8 h-8 flex-shrink-0"></div>
+<span class="font-label-md text-xs">1.2M</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-md text-xs">45K</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Video/Update -->
+<article class="glass-card rounded-xl overflow-hidden transition-transform active:scale-[0.98] cursor-pointer">
+<div class="p-4 flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sleek, minimalist icon depicting a stylized bird in glowing, metallic silver against a stark charcoal background, representing a premium social media platform logo tailored for a dark-mode, high-end digital aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEcS5_B9b8aHZKR8dmVe8Y5VgG_ih0TGMGGeAPNNZFSQ4bqt3GpX35GH3BjGgG4MS0CIlUrZpsYM7ejRL6OrMLNib6hqUYIUUu6o7-8o1MaX3V8kFK9d_xMmogT-hbOMNK6Yh8N9-QJTTBr5Ii-ZOjemqnXYTQbRsoaOWLL71dX2VP5A1n8cxI3zSXXShvU9nmVcmqmUXlkZ4cZFL4EgA0vIj_ymCduvNijgfWxk65RAiG4AwY0Dfmy7TzBnpOPQdVw0_3bZ2DpaGy"/>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">BTS_official</h3>
+<p class="font-body-sm text-[10px] text-on-surface-variant/70">5 hours ago</p>
+</div>
+</div>
+<span class="font-label-caps text-[10px] bg-surface-container/80 px-2 py-1 rounded text-[#1D9BF0] tracking-widest border border-white/10">X</span>
+</div>
+<div class="px-4 pb-sm">
+<p class="font-body-sm text-body-sm text-on-surface mb-3">
+                        [Episode] Behind the scenes of the latest music video shoot! Watch the members have fun on set while delivering powerful performances. 🎬✨
+                    </p>
+</div>
+<div class="w-full aspect-video relative group cursor-pointer">
+<img class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all" data-alt="A candid, high-quality behind-the-scenes photograph on a massive music video set. A K-pop artist is caught mid-laugh, dressed in elaborate stage costumes featuring dark velvet and silver chains. The background reveals heavy camera equipment and dramatic stage lighting emitting a soft purple haze, capturing an authentic, high-energy moment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGVxIeH-EzVTQzbNmXcMRJBPpLLqmd6FFNx-6aVaoPmfABVQBeuS7Nhrmb1iQBpXIher12EXmVni3owYgx6drlwCsH7Tnm5Jc5NuCUNbUQCkwDKoQwEPDSvxRshRC5rpTTXTUD5aHqhBA_u5pC7_1bG_qWdt4hMUbOEJnLQvF5bcbl1fW0tyGHC4f_f9HjM-vogbci4yiyW6G3_zjoQCbme-T6y-5XM3LJo_hmUolYEawsO7VjBknFN6j8kmQb2pE3ZTZ0QH0PtRmg"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-primary/80 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(227,181,255,0.6)] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-4 flex justify-between items-center border-t border-white/5 bg-surface-container-low/30">
+<div class="flex gap-4">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<div class="w-8 h-8 flex-shrink-0"></div>
+<span class="font-label-md text-xs">890K</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="sync">sync</span>
+<span class="font-label-md text-xs">120K</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+</article>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-[30px] border-t border-white/5 shadow-none pb-safe" id="bottomNavBar">
+<div class="flex justify-around items-center h-16 w-full px-margin-mobile">
+<!-- Feed (Active) -->
+<button class="flex flex-col items-center justify-center text-primary relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full after:shadow-[0_0_8px_#e3b5ff] hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="dynamic_feed" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dynamic_feed</span>
+<span class="font-label-md text-[10px]">Feed</span>
+</button>
+<!-- Explore -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="explore">explore</span>
+<span class="font-label-md text-[10px]">Explore</span>
+</button>
+<!-- Alerts -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="notifications">notifications</span>
+<span class="font-label-md text-[10px]">Alerts</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1 text-[24px]" data-icon="person">person</span>
+<span class="font-label-md text-[10px]">Profile</span>
+</button>
+</div>
+</nav>
+<script>
+        // Simple scroll effect for TopAppBar
+        let lastScrollY = window.scrollY;
+        const topAppBar = document.getElementById('topAppBar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 64) {
+                // Scrolling down
+                topAppBar.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                topAppBar.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        }, { passive: true });
+    </script>
+</body></html>

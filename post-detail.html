@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Content Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-primary": "#9000de",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "secondary-fixed": "#f3daff",
+                        "surface": "#131313",
+                        "on-primary-fixed-variant": "#6e00ab",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#2e014b",
+                        "surface-variant": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#d1c1d7",
+                        "on-error": "#690005",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#f9e8ff",
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353534",
+                        "secondary": "#e2b5ff",
+                        "surface-tint": "#e3b5ff",
+                        "primary": "#e3b5ff",
+                        "tertiary-container": "#6b6c6c",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-container": "#a020f0",
+                        "on-secondary-container": "#d5a6f4",
+                        "outline-variant": "#4e4355",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#e3e2e2",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline": "#9a8ca0",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#f3daff",
+                        "on-primary": "#4d007a",
+                        "on-secondary": "#451d61",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed": "#2f004c",
+                        "on-tertiary": "#2f3131",
+                        "secondary-container": "#60377c",
+                        "on-secondary-fixed-variant": "#5d357a",
+                        "tertiary": "#c6c6c6",
+                        "secondary-fixed-dim": "#e2b5ff",
+                        "background": "#131313",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e3b5ff",
+                        "on-tertiary-container": "#efeeee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sm": "12px",
+                        "gutter-mobile": "12px",
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "30px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Hide scrollbar for horizontal scrolling areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen relative pb-[100px]">
+<!-- Top Navigation for Detail View (Custom, not global shell because it's a detail screen with back) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/5 flex justify-between items-center px-margin-mobile h-16 w-full">
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-black tracking-tighter text-primary dark:text-primary drop-shadow-[0_0_15px_rgba(227,181,255,0.4)] truncate px-4">POST DETAIL</span>
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">share</span>
+</button>
+</header>
+<main class="pt-16">
+<!-- Hero Image -->
+<div class="relative w-full h-[397px] md:h-[530px]">
+<img alt="Hero Image" class="w-full h-full object-cover" data-alt="A highly atmospheric, cinematic shot of a massive concert stadium viewed from the stands. The crowd is a sea of glowing purple lightsticks, illuminating the deep charcoal and pure black shadows of the night. High contrast, high-energy pulse, sharp focus on the luminous purple dots against the dark background, evoking a premium, immersive fandom experience. The aesthetic blends glassmorphism with high-contrast neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo8eZ17J6P3LJ9xzY-89zASR3xj1ztmRXEoL_dDJ98VniVPXXPdpu0-gE-RellJXPykbvorLNoy72mIlQqkDH8lNRUThtoiNf4jbkJUgMHrizXlPpq2kBAMVLlklrkK2KritACkGNCUdOb9B7DITtDvZpxmUfEYt0cg9kYRHRZCuFd0yUNU1QdEGhnO8nQDdVEYwaXbygp2iWEe688uFmLiwbeYq4-IuBgiiOEI4XVqG7eL4WsDBpKsg2IG-a8zC5lgOnbcZYXpRbf"/>
+<!-- Glassmorphism gradient overlay at bottom -->
+<div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent pointer-events-none"></div>
+<!-- Source Badge -->
+<div class="absolute top-md right-md bg-white/5 backdrop-blur-[20px] border border-white/10 rounded-full px-sm py-base text-secondary font-label-caps tracking-widest shadow-[0_0_15px_rgba(227,181,255,0.2)]">
+                WEVERSE
+            </div>
+</div>
+<!-- Content Area -->
+<article class="px-margin-mobile pb-lg -mt-lg relative z-10">
+<!-- Metadata tags -->
+<div class="flex flex-wrap gap-sm mb-md">
+<span class="bg-surface-variant/80 backdrop-blur-md border border-outline/30 rounded-full px-sm py-base font-label-md text-label-md text-on-surface-variant inline-flex items-center gap-base">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">sell</span> Update
+                </span>
+<span class="bg-primary/10 backdrop-blur-[30px] border border-primary/30 rounded-full px-sm py-base font-label-md text-label-md text-primary inline-flex items-center gap-base shadow-[0_0_10px_rgba(227,181,255,0.2)]">
+<span class="material-symbols-outlined text-[16px]">person</span> RM
+                </span>
+<span class="bg-primary/10 backdrop-blur-[30px] border border-primary/30 rounded-full px-sm py-base font-label-md text-label-md text-primary inline-flex items-center gap-base shadow-[0_0_10px_rgba(227,181,255,0.2)]">
+<span class="material-symbols-outlined text-[16px]">person</span> Jimin
+                </span>
+</div>
+<!-- Title -->
+<h1 class="font-headline-xl text-headline-xl mb-sm leading-tight text-on-surface">Behind the Scenes at the Stadium</h1>
+<!-- Author / Date Info -->
+<div class="flex items-center justify-between mb-lg border-b border-surface-variant pb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant border border-white/10 relative">
+<img alt="Author" class="w-full h-full object-cover" data-alt="A striking portrait of a stylized avatar in a dark aesthetic space. The avatar is illuminated by soft glowing purple rim light against a pure obsidian black background. The overall look is premium, cinematic, and slightly mysterious, fitting a digitally native fandom profile. High visual fidelity with subtle glassmorphism lighting effects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZWODAaN29NP_GGWTTVJkI3y2jYDs2U5uv86VzjEMKt4vyNGVwVQ4YeqTRmaHxqzcZwqvRES8uoXxNcIIFficyPLyq6BD1g4xzTFGrpGTdyV7H1u1M4roOhqhKYu2RSbIFoGIDHXpH5d4czh0mh9J2KH44sQEyl1pJLxHFqv8ZZT0dGgStafKxOZzIzHsxFLWRfVmzum6a86t3_vX7NkgEqRBDzMBHdb6mnLzIjobZbPZmWfY9HxlE7GeHMQl1i8Er0DrH0UV5f4e5"/>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold text-on-surface">BIGHIT MUSIC</p>
+<p class="font-label-md text-label-md text-on-surface-variant/70">2 hours ago</p>
+</div>
+</div>
+<div class="flex items-center gap-md"><div class="w-10 h-10 cursor-pointer relative z-10" id="lightstick-container"></div><button class="text-on-surface-variant/70 hover:text-primary transition-colors"><span class="material-symbols-outlined">chat_bubble</span></button></div></div>
+<!-- Body Content -->
+<div class="font-body-md text-body-md text-on-surface-variant leading-relaxed space-y-md">
+<p>Hello. This is BIGHIT MUSIC. We are incredibly excited to share some exclusive behind-the-scenes moments from last night's unforgettable stadium show. The energy you all brought was absolutely electric, and it truly lit up the night sky.</p>
+<p>As we prepare for the next leg of the tour, we wanted to take a moment to reflect on the journey so far. The dedication and passion of ARMY are what keep us going, pushing us to create bigger and better experiences.</p>
+<p>Check out the exclusive photos below, and stay tuned for more updates as we continue this journey together. Thank you for always being our brightest light.</p>
+<!-- Inline Image -->
+<div class="w-full aspect-video rounded-xl overflow-hidden my-lg border border-white/5 relative shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)]">
+<img alt="Stage Setup" class="w-full h-full object-cover" data-alt="A dynamic, high-contrast photograph of a sleek, futuristic stage setup before a concert. The stage is mostly dark, deep charcoal and obsidian, accented by striking, sharp beams of intense primary purple and holographic silver light cutting through the atmosphere. The aesthetic is extremely premium, evocative of infinite space and high-energy live events. Subtle glowing dust particles in the air." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0hDMi8TlbsnQ591Za9s29MskONc8bsFZwGa-cIMUkafPZxurhQ2RG3W3VsFo2URmsoSE_zxQfHjQ6s2SSMzlbJE49Q8AWBW3f8N7IClIlC5KLP8qAIsChUlbmchTM1Aw92dxphZ4IhS0KLtXmMtslMeDUngq4p8JmfK1pD75aL0FrCxsNEXt1DKlEXqAdAuXD1vmVjLscTsIC81g0QDkOrQP6ppHrgqm3_BUI1Fhbl7IiB_Rkpt-7y3NhFTwLvZLKlnhybYr5sZ7L"/>
+<div class="absolute inset-0 bg-white/5 backdrop-blur-[2px] opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] text-white" style="font-variation-settings: 'FILL' 1;">zoom_in</span>
+</div>
+</div>
+</div>
+<!-- Metadata Link / Action -->
+<div class="mt-xl p-md bg-surface-container/50 backdrop-blur-xl border border-white/10 rounded-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">ORIGINAL SOURCE</span>
+<a class="font-body-md text-body-md text-primary hover:text-primary-fixed transition-colors underline decoration-primary/50 underline-offset-4" href="#">Weverse Announcement Board</a>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">open_in_new</span>
+</div>
+</article>
+<!-- Related Content Section (Bento-ish Grid) -->
+<section class="px-margin-mobile pb-xl">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-md">Related Posts</h2>
+<div class="grid grid-cols-2 gap-sm">
+<!-- Card 1 -->
+<div class="bg-surface/40 backdrop-blur-[20px] border border-white/5 rounded-xl overflow-hidden active:scale-95 transition-transform duration-200 cursor-pointer">
+<div class="h-24 w-full bg-surface-variant relative">
+<img alt="Thumbnail" class="w-full h-full object-cover" data-alt="A close-up shot of a glowing holographic microphone resting on a deep black surface. The microphone emits a soft, vibrant purple aura, contrasting sharply with the pitch-black, obsidian background. The scene feels premium and heavily stylized with a subtle glassmorphic glow effect surrounding the object." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_OQ-SscqJ1UbeCtYsXzvMoIbmZNVbsQNwX0L_Y6ylO_bdhUrDFEswsR_CLATxbOxokGwoeHnpzAhN-tSF3zjdHEwOkjEA4xRu6wvv7hQWyjtTqDY5nSnMuk7RBaSMw5aSsPmiunhD3ZwUq-2UcVcfO3bBcemsRjrTAotbpt8KocdMSDviHebPVCPtf28lAv0dJ3CCC_Ii_wPt6q2vbuuOnodNdcqE25FcETJFvyar9WcDMw6f2gF7cE0Mt3kHjpkknbcDCyDqpIsU"/>
+</div>
+<div class="p-sm">
+<span class="font-label-md text-label-md text-secondary mb-1 block">Notice</span>
+<h3 class="font-body-sm text-body-sm font-bold text-on-surface line-clamp-2">Tour Merchandise Pre-order Details</h3>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface/40 backdrop-blur-[20px] border border-white/5 rounded-xl overflow-hidden active:scale-95 transition-transform duration-200 cursor-pointer">
+<div class="h-24 w-full bg-surface-variant relative">
+<img alt="Thumbnail" class="w-full h-full object-cover" data-alt="A wide, abstract shot of a crowd in a stadium, entirely blurred and distorted using heavy glassmorphism and bokeh effects. The colors are predominantly deep charcoals and blacks, with intense, luminous spots of primary purple and secondary pink piercing through the darkness, creating a high-energy, immersive atmospheric texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_s1BolsYzPZV88fCIeOvlK06Cbozxh57JHm5giTpOtjb6wIJTQNb3nufEoC5ZLeLy8uub9m7VrTir7Ayszd1UsVhtZvqWJjqtO9Ly5pf0pb2-F_5sNRBqXANga0fW80K2sZ4FCgX86bvK_jm0ofkWjFJj2sc3zkV1RejeTvK6-8oSvPfuwDeK-zf_hk38sTu5TNHrvMxT5s5SKfxUyidQEueLPhwdKZVcpraOiprxw3WZMbi3xe2HFKJzZ-sUIofa-NYbkzzjdlCB"/>
+</div>
+<div class="p-sm">
+<span class="font-label-md text-label-md text-secondary mb-1 block">Media</span>
+<h3 class="font-body-sm text-body-sm font-bold text-on-surface line-clamp-2">Exclusive Soundcheck Photos</h3>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (Open in Original App) -->
+<button class="fixed bottom-lg right-margin-mobile z-50 bg-primary text-on-primary font-body-md text-body-md font-bold px-lg py-sm rounded-full flex items-center gap-sm shadow-[0_0_20px_rgba(227,181,255,0.4)] hover:scale-105 active:scale-95 transition-all duration-300 border border-primary-fixed-dim/50 backdrop-blur-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">open_in_browser</span>
+        Open App
+    </button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script>const container = document.getElementById('lightstick-container'); if (container) { (function() { <threejs-scene src="{{DATA:ANIMATION:ANIMATION_8}}" class=""></threejs-scene> })(); }</script></body></html>

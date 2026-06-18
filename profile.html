@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Member Profile - Borahae</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-primary": "#9000de",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "secondary-fixed": "#f3daff",
+                        "surface": "#131313",
+                        "on-primary-fixed-variant": "#6e00ab",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#2e014b",
+                        "surface-variant": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#d1c1d7",
+                        "on-error": "#690005",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#f9e8ff",
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353534",
+                        "secondary": "#e2b5ff",
+                        "surface-tint": "#e3b5ff",
+                        "primary": "#e3b5ff",
+                        "tertiary-container": "#6b6c6c",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-container": "#a020f0",
+                        "on-secondary-container": "#d5a6f4",
+                        "outline-variant": "#4e4355",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#e3e2e2",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline": "#9a8ca0",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#f3daff",
+                        "on-primary": "#4d007a",
+                        "on-secondary": "#451d61",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed": "#2f004c",
+                        "on-tertiary": "#2f3131",
+                        "secondary-container": "#60377c",
+                        "on-secondary-fixed-variant": "#5d357a",
+                        "tertiary": "#c6c6c6",
+                        "secondary-fixed-dim": "#e2b5ff",
+                        "background": "#131313",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e3b5ff",
+                        "on-tertiary-container": "#efeeee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sm": "12px",
+                        "gutter-mobile": "12px",
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "xs": "8px",
+                        "safe": "env(safe-area-inset-bottom)"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "30px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #121212;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-active {
+            background: rgba(227, 181, 255, 0.15);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(192, 192, 192, 0.2);
+            box-shadow: 0 0 15px rgba(227, 181, 255, 0.4);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(227, 181, 255, 0.6);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Custom safe area padding for bottom nav */
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Top Navigation (Back Button for sub-page, but keeping Brand as requested) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/5 shadow-none transition-transform duration-200">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-w-2xl mx-auto">
+<button aria-label="Go Back" class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 p-2 -ml-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back_ios</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black tracking-tighter text-primary dark:text-primary drop-shadow-[0_0_15px_rgba(227,181,255,0.4)] truncate px-4">
+                V
+            </h1>
+<button aria-label="More Options" class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 p-2 -mr-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_horiz</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-16 pb-[calc(64px+env(safe-area-inset-bottom)+24px)] w-full max-w-2xl mx-auto">
+<!-- Header Profile Section -->
+<section class="relative w-full h-[353px] min-h-[300px] mb-lg">
+<!-- Hero Image -->
+<div class="absolute inset-0 w-full h-full">
+<div class="bg-cover bg-center bg-no-repeat w-full h-full object-cover" data-alt="A striking, high-fidelity portrait of a charismatic male K-pop idol with striking features, dark expressive eyes, and stylishly messy dark hair. He is bathed in moody, concert-style lighting with deep obsidian shadows and vibrant, holographic purple (Borahae) rim lights. The background is a dark, abstract, luminous void, enhancing the premium, immersive concert atmosphere. The aesthetic is extremely polished, hyper-realistic, and cinematic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4r57zbFv3Gf0eSKktm-P38B4YQX52m_dD30DE2R3j8nK4lR27LyHva-t1BO-vOeOZIoK3yDTRztvCaiz610s35KNgfny2ozJGTc3GYa9MmBXqBbvshjpt-FswhDnMszxVOipQ_3Ye5h-MHOgYyJh0sKTBXJ58PO0YhlG8Gr75myrGsRb_Mhpaq73k1yhX_Y4S8d4jFcmwxPKl6aIgkUCZZTILNod4dfIMq5JtCOWzOx1N2JAvfFBtWR7G7cURxCCQY5xqKZdKo-hk')"></div>
+<!-- Gradient Overlay for smooth transition to background -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-transparent h-24"></div>
+</div>
+<!-- Profile Info Overlay -->
+<div class="absolute bottom-0 left-0 w-full px-margin-mobile pb-md flex flex-col justify-end">
+<h2 class="font-headline-xl text-headline-xl text-primary text-glow mb-1">Taehyung</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm line-clamp-2">Visual, Vocalist, and eternal romantic. Capturing moments through his lens.</p>
+<div class="flex items-center gap-sm mt-md">
+<button class="glass-active rounded-full px-6 py-2 font-label-caps text-label-caps text-primary flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        FOLLOW
+                    </button>
+<button class="glass-panel rounded-full w-10 h-10 flex items-center justify-center text-on-surface hover:bg-white/10 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">share</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Stats Section (Bento Grid Style) -->
+<section class="px-margin-mobile mb-xl">
+<div class="grid grid-cols-2 gap-sm">
+<!-- Stat Card 1 -->
+<div class="glass-panel rounded-xl p-md flex flex-col justify-between h-24 hover:bg-white/10 transition-colors cursor-default">
+<div class="flex items-center gap-2 text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-caps text-label-caps">TRENDING RANK</span>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
+                        #1 <span class="font-body-sm text-body-sm text-on-surface-variant ml-1 font-normal">Global</span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="glass-panel rounded-xl p-md flex flex-col justify-between h-24 hover:bg-white/10 transition-colors cursor-default">
+<div class="flex items-center gap-2 text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-label-caps text-label-caps">POSTS TODAY</span>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
+                        1,428
+                    </div>
+</div>
+</div>
+</section>
+<!-- Content Feed Section -->
+<section class="px-margin-mobile">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-headline-lg-mobile text-[20px] leading-[28px] font-bold text-on-surface">Recent Updates</h3>
+<button class="text-primary font-label-md text-label-md hover:text-primary/80 transition-colors">View All</button>
+</div>
+<div class="flex flex-col gap-lg">
+<!-- Feed Item 1: Image Post -->
+<article class="glass-panel rounded-xl overflow-hidden active:scale-[0.98] transition-transform duration-200">
+<div class="p-sm flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="A close-up profile picture avatar of a handsome young man with dark wavy hair, illuminated by a soft, neon purple glow against a dark charcoal background. High quality, digital art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2fENghqEuCKbh-fjawTcvZvHkE-oUyIwR0XVEFEY_AGVbAHcw8pi-3J5WpOqWlDtmnYw8RCkwPK7Y3uzUR1V-F3JYXycOiSreqO9XT7FuUnRpba3cmg22gZoe0HTk1TeUnQ_x5cjgrmo7zDRaTG03h841JigaeZCuPm5I5H5AI2PTNbDeVDtY5OF8m9rupcCgEnrpg4E6Oqw3ro7zmGEYlJwyWHxsZuxHF2e6mfZKmSxklHDb1CgDoVeysOC8XEYbZ6grZWdD3_wB"/>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">V</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant/70">2 hours ago</p>
+</div>
+<span class="font-label-caps text-[10px] tracking-widest text-secondary bg-surface-container py-1 px-2 rounded-sm border border-white/10">WEVERSE</span>
+</div>
+<div class="w-full aspect-square bg-surface-container-high relative">
+<div class="bg-cover bg-center w-full h-full object-cover" data-alt="A breathtaking, cinematic photograph of a serene winter landscape at night. Snow-covered pine trees stand tall under a starry sky. A subtle, luminous purple aurora borealis dances across the deep black sky, providing a subtle Borahae theme to the natural scenery. Highly detailed, high contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBv3N5zUi8CpezZRFnqSvvGJZLNojgaUHVrMu5VfiEJblUZcCc7Ve16LFQ9k2tSypGY_SeAOFbPqIqYfmPQXdYt0PwIACkL2QeOU8vOkg4tNbiTCWc1axl5HAIryvGgAo_aoySFw3HJXBC-Bx_8sfMAzD8Do8JiGWfci-c9sQ-Owh9uDOFi6GHGyyWeE6cg1OyD8M-5tFr8gIfmX9Og9YoqjPKU_Puz442P5wiPhC9ejWgLomuNsDYlLhplek4ftnzp_y85cSna1YrF')"></div>
+</div>
+<div class="p-md">
+<p class="font-body-md text-body-md text-on-surface mb-sm">Winter bear vibes today 🐻❄️ Keep warm everyone.</p>
+<div class="flex items-center gap-lg text-on-surface-variant">
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+<span class="font-label-md text-label-md">842K</span>
+</button>
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">chat_bubble</span>
+<span class="font-label-md text-label-md">12K</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Feed Item 2: Text Post -->
+<article class="glass-panel rounded-xl overflow-hidden p-md active:scale-[0.98] transition-transform duration-200">
+<div class="flex items-center gap-sm mb-md">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="A small circular avatar image showing a stylized 'V' logo in vibrant purple neon against a deep black background. Minimalist, premium tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB41zMt2uHUz-dZx-kllZs4ptvCLUBbBRAH5SWPtCxB9zgy0B8aMuaJCMOGnGHKfIPWNSfX76FgG_4b-AGMRc4BGrI3Aav3GIo9NqCrMcO9Mafp3_VZGqFxr7Oui8rO_yTPbUo-t1eVWyVV0_1o17PNgi7l5EbGJluryOo_ngnCEvSaiX_-fb2CjS-f5eGMh5L76FLXS3XqzZGi56NZA_Tp6h_IFriFT_AW11P-C_ipBbX4fDr2SWjwzrnhxGca_mNQrbV_cStnd1ri"/>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">V</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant/70">5 hours ago</p>
+</div>
+<span class="font-label-caps text-[10px] tracking-widest text-secondary bg-surface-container py-1 px-2 rounded-sm border border-white/10">TWITTER</span>
+</div>
+<p class="font-headline-lg-mobile text-[18px] leading-[26px] font-normal text-on-surface mb-md">Listening to some old jazz records tonight. What are you all doing?</p>
+<div class="flex items-center gap-lg text-on-surface-variant">
+<button class="flex items-center gap-xs hover:text-primary transition-colors text-primary">
+<span class="material-symbols-outlined text-primary drop-shadow-[0_0_8px_rgba(227,181,255,0.6)]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-md text-label-md">1.2M</span>
+</button>
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">chat_bubble</span>
+<span class="font-label-md text-label-md">45K</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell (Since this is a sub-page but prompt requested BottomNavBar, we include it, assuming 'Explore' or 'Feed' intent. Let's highlight 'Explore' as it's a specific entity discovery.) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-[30px] border-t border-white/5 shadow-none md:hidden">
+<div class="flex justify-around items-center h-16 w-full pb-safe max-w-md mx-auto">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200 w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">dynamic_feed</span>
+<span class="font-label-md text-label-md">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full after:shadow-[0_0_8px_#e3b5ff] hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200 w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-md text-label-md">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200 w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="font-label-md text-label-md">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary/80 transition-colors active:scale-90 transition-transform duration-200 w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

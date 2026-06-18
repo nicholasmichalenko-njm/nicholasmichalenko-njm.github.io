@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BTS News Stream - Notification Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed": "#f3daff",
+                        "outline": "#9a8ca0",
+                        "on-primary-fixed": "#2f004c",
+                        "surface-container-highest": "#353534",
+                        "on-background": "#e5e2e1",
+                        "surface-container": "#201f1f",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-primary": "#9000de",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-container": "#60377c",
+                        "on-secondary-fixed-variant": "#5d357a",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "secondary-fixed-dim": "#e2b5ff",
+                        "on-primary": "#4d007a",
+                        "background": "#131313",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-secondary-container": "#d5a6f4",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary": "#451d61",
+                        "on-secondary-fixed": "#2e014b",
+                        "inverse-on-surface": "#313030",
+                        "surface-tint": "#e3b5ff",
+                        "on-surface-variant": "#d1c1d7",
+                        "primary": "#e3b5ff",
+                        "primary-fixed": "#f3daff",
+                        "secondary": "#e2b5ff",
+                        "on-error": "#690005",
+                        "surface-variant": "#353534",
+                        "primary-container": "#a020f0",
+                        "on-tertiary": "#2f3131",
+                        "primary-fixed-dim": "#e3b5ff",
+                        "outline-variant": "#4e4355",
+                        "on-tertiary-container": "#efeeee",
+                        "on-primary-fixed-variant": "#6e00ab",
+                        "tertiary": "#c6c6c6",
+                        "surface": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed": "#e3e2e2",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131313",
+                        "tertiary-container": "#6b6c6c",
+                        "on-primary-container": "#f9e8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "gutter-mobile": "12px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-xl": ["Montserrat"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "30px", "fontWeight": "700" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #a020f0;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #a020f0;
+            box-shadow: 0 0 15px rgba(160,32,240,0.4);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(192, 192, 192, 0.2);
+        }
+        .primary-glow {
+            box-shadow: 0 0 15px rgba(160, 32, 240, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-background/80 backdrop-blur-xl fixed top-0 w-full bg-surface-container/10 border-b border-outline-variant/20 shadow-[0_0_15px_rgba(160,32,240,0.4)] flex justify-between items-center px-margin-mobile h-16 w-full z-50">
+<div class="font-headline-lg font-headline-lg font-bold text-primary">
+            ARMY Hub
+        </div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:opacity-80 active:scale-95 transition-all w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high hidden">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="text-on-surface-variant hover:opacity-80 active:scale-95 transition-all w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 pb-32 px-md max-w-4xl mx-auto space-y-lg">
+<div class="mb-xl">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-xs">Notification Settings</h1>
+<p class="text-on-surface-variant font-body-md text-body-md">Customize how you stay connected with the galaxy.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Source Alerts Card -->
+<section class="glass-card rounded-xl p-lg flex flex-col gap-sm">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">rss_feed</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Source Alerts</h2>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-surface-container-high last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Twitter (X)</span>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="twitter-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="twitter-toggle"></label>
+</div>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-surface-container-high last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Instagram</span>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="ig-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="ig-toggle"></label>
+</div>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-surface-container-high last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Weverse</span>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="weverse-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="weverse-toggle"></label>
+</div>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-surface-container-high last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">News Outlets</span>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="news-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="news-toggle"></label>
+</div>
+</div>
+</section>
+<!-- App Notifications Card -->
+<section class="glass-card rounded-xl p-lg flex flex-col gap-sm">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">App Events</h2>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-surface-container-high last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Tour Announcements</span>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="tour-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="tour-toggle"></label>
+</div>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-surface-container-high last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Merchandise Drops</span>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="merch-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="merch-toggle"></label>
+</div>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-surface-container-high last:border-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Live Stream Starts</span>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="live-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="live-toggle"></label>
+</div>
+</div>
+</section>
+</div>
+<!-- Member Updates Card -->
+<section class="glass-card rounded-xl p-lg">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Member Updates</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-sm"><div class="flex items-center justify-between p-sm bg-surface-container-low rounded-lg border-2 border-primary/30 hover:border-primary transition-colors">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-body-md" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-bold">Official Group</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="official-group-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="official-group-toggle"></label>
+</div>
+</div>
+<!-- Member 1 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded-lg border border-surface-container-high hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-xs">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar thumbnail portrait of RM from BTS in a dark atmospheric setting with subtle purple neon rim lighting. High resolution, hyper-detailed, moody concert vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA69vInsdLeQEicUk9Eda59pUtkET0d_FDFg6KcQ4R8UHp-sdzfjEZqW0BBoTHlTGuzWieZ5Zs43DdYzFg4w73tuVygLUTwqon1nlHN0tU42vFYoGJetaJJrZsjU6sZ7PdfWo4sTbx0fRVggoM9Dr9FkZQmQ0O4UrFZoUMxNT5HT4myp2pisxlMoDpNQ9pTGldUGYWJyoeLDo_IECp-V92baJc76tuNP1rg-rnIOF1MPOOAA0ysnZI6Q3bb9iiJf_Jx2onyiCMihXon"/>
+<span class="font-body-md text-body-md text-on-surface">RM</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="rm-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="rm-toggle"></label>
+</div>
+</div>
+<!-- Member 2 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded-lg border border-surface-container-high hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-xs">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar thumbnail portrait of Jin from BTS in a dark atmospheric setting with subtle purple neon rim lighting. High resolution, hyper-detailed, moody concert vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZKpZaFyzQt6-G7Kr3Wyrqpy_50aMePVsUVheZMe7_RdqHaKxDX1VDZs8Aq7p36cvF4v3rKDZmxpB8WFyHBj0EdUOGkCRgr2kVk1-X8ryMIDZp3quHS9rjK2loyUYNKkTPYQC9HvGJdqXsIGefBwp2r507zs9ig1slQl_r5f4xCpAyfC2sWPfB1d4sGLv2grA_VqKkKURu2aLdCzFr95w_o8YuZXXsQlnVQyjwmnn8-r0nyzifMpkDkgv9oFCb_pZvpWgh1LQlCo-u"/>
+<span class="font-body-md text-body-md text-on-surface">Jin</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="jin-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="jin-toggle"></label>
+</div>
+</div>
+<!-- Member 3 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded-lg border border-surface-container-high hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-xs">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar thumbnail portrait of Suga from BTS in a dark atmospheric setting with subtle purple neon rim lighting. High resolution, hyper-detailed, moody concert vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7n1j0cSe3CRHv3-hjFlh-V7PRXdlrcYoER-87OjRuhOhJFF5Ii49QlK1a3jDwRRLJT_vI3cvusoxCXEiIk0p3Nxl45UV3Op_Q4l2A0fzJU98n7kyERCP72WbyrUT81RpIrIHYAtZRMM_Vu50QTsUkynl7PyhGXDCTxBdfcHChAthtdSYDSZwHxf71p8xpwyDoGrGg4BI7PCHnaqYTVsdBl7Jwxvpg4CMM3A2bc-xYVhWdlmvRznxIJX2gSbbeQcvIAgeiogqI4KiX"/>
+<span class="font-body-md text-body-md text-on-surface">Suga</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="suga-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="suga-toggle"></label>
+</div>
+</div>
+<!-- Member 4 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded-lg border border-surface-container-high hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-xs">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar thumbnail portrait of j-hope from BTS in a dark atmospheric setting with subtle purple neon rim lighting. High resolution, hyper-detailed, moody concert vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjOUhZr8gc74ffKjl7TpXklJMg9vgwBFuyspk1GF8zsFxpp3IbvJ2ArAnq8D-ZkvKPbgMQy2G9CyAUbKxFwREJ8J9nBCP1gIG2hYsgjkTCTUHqtsbvBZXUWKxMjBvyqjaC6pFxmKIPXu3nsLaeBucT1MeuP43mgAYuIM73TStwetQn5TT-YtdLwBM__cQOkSWloadit1Um3yGlckmnp1c7MwSRuTjgiHithUxztL9NzUmi2aSSHbABS51lFWzzrT0lWeOSMmBw-i4b"/>
+<span class="font-body-md text-body-md text-on-surface">j-hope</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="jhope-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="jhope-toggle"></label>
+</div>
+</div>
+<!-- Member 5 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded-lg border border-surface-container-high hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-xs">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar thumbnail portrait of Jimin from BTS in a dark atmospheric setting with subtle purple neon rim lighting. High resolution, hyper-detailed, moody concert vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6SaiKLLOUOvLFZcOGZUIFjjgw4-Yu3Oz6bBsJKeDQsgqbCCAThtgV7lZUw6Zi-Jgg9oIF0taHdDRwOdK4n_lTcOzjNnLQmaTxZTDsvBJrukhbQVCth7XPSPEten0Ox-q-7vXZ1Wtbc5S6xbtw2dMlsTQwNL0Q5yP8Ql--mVxL4l05AkJPaNgfBfmFXXr7ZYPq22pUztr1F-DpxjZlSafz97x7wrEI0ppfJzJed0rQR05rXhlMa875Q8F7Ri2_CyTQK8m1xEreCHUg"/>
+<span class="font-body-md text-body-md text-on-surface">Jimin</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="jimin-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="jimin-toggle"></label>
+</div>
+</div>
+<!-- Member 6 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded-lg border border-surface-container-high hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-xs">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar thumbnail portrait of V from BTS in a dark atmospheric setting with subtle purple neon rim lighting. High resolution, hyper-detailed, moody concert vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcE3bNipRkZyhkIaid5SbbO5aDQEgbssqfLAUaJaJjcGmfNiZhEfTMyEx1A8Yi9pIMPMZN-gMn9_4mRTOERP7CRKkEPfKqazH4i7luSauu6f9Rx_hYItYjG6mnJWXGyptvYPiy2k6Vxu-evJy0mdiHMvlaXcrJn8hV_Fw7oVf3_nxPz7y1mhllGU6x_8gcPbWA5Gy8Sxkq0-kBMlCwhzHzHvgnxKX6yz5RYmGJ5zkHp2VZyYXjAipN6adxDpzdouzl6JsRgwZgN226"/>
+<span class="font-body-md text-body-md text-on-surface">V</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="v-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="v-toggle"></label>
+</div>
+</div>
+<!-- Member 7 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded-lg border border-surface-container-high hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-xs">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar thumbnail portrait of Jungkook from BTS in a dark atmospheric setting with subtle purple neon rim lighting. High resolution, hyper-detailed, moody concert vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVkKlZb01hEcUL_vWXAsvkSXM_U5dOfo0FUYw46fvQjqRCiAHmWW_qaIEJDpOoEzIHc4nD0m6c8cDsGS18kvffRt-zbOTdnsW7rFzOtnE6ptU_2UTzZx9-rdbSVS0kGOpc0ynK40E-NdIyU8YCZEMSdwGbwU00CLZIzf0bpHS4U1daH4WPXNPsLx4MOI8oxmuChr2eEUbuL2LYMW4O2i967bMwRivU0CLZw9_oAT_19QnZRvIKUCl8lYSCvxdKiWuF1on5EGOdo-MD"/>
+<span class="font-body-md text-body-md text-on-surface">Jungkook</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="jk-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="jk-toggle"></label>
+</div>
+</div>
+<!-- OT7 -->
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded-lg border border-surface-container-high hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs">OT7</div>
+<span class="font-body-md text-body-md text-on-surface font-bold text-primary">All Members</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="ot7-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="ot7-toggle"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Quiet Mode Card -->
+<section class="glass-card rounded-xl p-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">do_not_disturb_on</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Quiet Mode</h2>
+</div>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Mute non-urgent alerts during specified hours.</p>
+</div>
+<div class="flex items-center gap-sm bg-surface-container-low p-xs rounded-lg border border-surface-container-high">
+<input class="bg-transparent border-none text-on-surface font-body-md text-body-md focus:ring-0 cursor-pointer" type="time" value="23:00"/>
+<span class="text-on-surface-variant font-body-sm text-body-sm">to</span>
+<input class="bg-transparent border-none text-on-surface font-body-md text-body-md focus:ring-0 cursor-pointer" type="time" value="07:00"/>
+<div class="relative inline-block w-10 ml-xs align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer" id="quiet-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="quiet-toggle"></label>
+</div>
+</div>
+</section>
+<!-- Save Actions -->
+<div class="flex justify-end pt-md">
+<button class="bg-primary-container text-on-primary-container font-headline-lg-mobile text-headline-lg-mobile font-bold py-sm px-xl rounded-full primary-glow hover:bg-primary transition-colors active:scale-95">
+                Save Changes
+            </button>
+</div>
+</main>
+</body></html>
