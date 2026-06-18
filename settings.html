@@ -120,16 +120,16 @@
 <body class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
 <!-- TopNavBar -->
 <header class="bg-background/80 backdrop-blur-xl fixed top-0 w-full bg-surface-container/10 border-b border-outline-variant/20 shadow-[0_0_15px_rgba(160,32,240,0.4)] flex justify-between items-center px-margin-mobile h-16 w-full z-50">
-<div class="font-headline-lg font-headline-lg font-bold text-primary"><a href="index.html" class="hover:opacity-80 transition-opacity">ARMY Hub</a></div>
+<div class="font-headline-lg font-headline-lg font-bold text-primary"><a class="hover:opacity-80 transition-opacity" href="index.html">ARMY Hub</a></div>
 <div class="flex items-center gap-sm">
 <button class="text-on-surface-variant hover:opacity-80 active:scale-95 transition-all w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high hidden">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
 </button>
-<a href="profile.html" class="text-on-surface-variant hover:opacity-80 active:scale-95 transition-all w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span></a>
+<a class="text-on-surface-variant hover:opacity-80 active:scale-95 transition-all w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high" href="profile.html"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span></a>
 </div>
 </header>
 <!-- Main Canvas -->
-<main class="pt-24 pb-32 px-md max-w-4xl mx-auto space-y-lg">
+<main class="pt-24 px-md max-w-4xl mx-auto space-y-lg pb-40">
 <div class="mb-xl">
 <h1 class="font-headline-xl text-headline-xl text-primary mb-xs">Notification Settings</h1>
 <p class="text-on-surface-variant font-body-md text-body-md">Customize how you stay connected with the galaxy.</p>
@@ -333,6 +333,23 @@
             </button>
 </div>
 </main>
-
+<nav class="fixed bottom-0 w-full bg-background/80 backdrop-blur-xl border-t border-outline-variant/20 px-xl py-sm flex justify-around items-center z-50">
+<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="index.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="text-xs font-label-md">Feed</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="explore.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">explore</span>
+<span class="text-xs font-label-md">Explore</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-primary transition-colors" href="settings.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-xs font-label-md">Alerts</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant hover:text-primary transition-colors" href="profile.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="text-xs font-label-md">Profile</span>
+</a>
+</nav>
 
 </body></html>
